@@ -3,12 +3,12 @@ import styles from "./MatchDetails.module.css"
 export const MatchDetails = () => {
   return (
     <>
-    <ul>
-        <li>Overview</li>
-        <li>General</li>
-        <li>Team A</li>
-        <li>Team B</li>
-        <li>Player</li>
+    <ul className={styles.nav}>
+        <li className={styles.item}>Overview</li>
+        <li className={styles.item}>General</li>
+        <li className={styles.item}>Team A</li>
+        <li className={styles.item}>Team B</li>
+        <li className={styles.item}>Player</li>
     </ul>
     <div>
         <h4>Overview</h4>

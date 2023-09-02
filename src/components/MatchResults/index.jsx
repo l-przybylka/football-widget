@@ -9,7 +9,7 @@ export const MatchResults = () => {
                 <h3>Full Time</h3>
             </div>
             <div className={styles.container}>
-                // refactor team into a separate module to avoid duplication
+                {/* refactor team into a separate module to avoid duplication */}
                 <div className={styles.team}>
                     <Image
                         src="/assets/arsenalLogo.png"
