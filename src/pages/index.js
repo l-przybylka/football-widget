@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { Container } from '@/components/Container'
-import { MatchInfo } from '@/components/MatchInfo'
+import { MatchResults } from '@/components/MatchResults'
+import { MatchDetails } from '@/components/MatchDetails'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,8 @@ export default function Home() {
       </Head>
       <main className={inter.className}>
         <Container>
-          <MatchInfo />
+          <MatchResults />
+          <MatchDetails />
         </Container>
       </main>
     </>

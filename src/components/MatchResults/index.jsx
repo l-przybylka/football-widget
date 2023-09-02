@@ -1,7 +1,7 @@
-import styles from "./MatchInfo.module.css"
+import styles from "./MatchResults.module.css"
 import Image from "next/image"
 
-export const MatchInfo = () => {
+export const MatchResults = () => {
     return (
         <>
             <div className={styles.header}>
@@ -9,6 +9,7 @@ export const MatchInfo = () => {
                 <h3>Full Time</h3>
             </div>
             <div className={styles.container}>
+                // refactor team into a separate module to avoid duplication
                 <div className={styles.team}>
                     <Image
                         src="/assets/arsenalLogo.png"
