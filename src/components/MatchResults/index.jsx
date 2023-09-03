@@ -2,7 +2,6 @@ import styles from "./MatchResults.module.css"
 import Image from "next/image"
 
 export const MatchResults = ({ teamDetails, competitionDetails, scores }) => {
-    console.log(scores)
     return (
         <>
             <div className={styles.header}>
