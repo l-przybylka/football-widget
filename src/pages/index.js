@@ -9,16 +9,21 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-  const [teamDetails, setTeamDetails] = []
-  const [competitionDetails, setCompetitionDetails] = []
-  const [scores, setScores] = []
-  const [statistics, setStatistics] = []
+  const [teamDetails, setTeamDetails] = useState([])
+  const [competitionDetails, setCompetitionDetails] = useState([])
+  const [scores, setScores] = useState([])
+  const [statistics, setStatistics] = useState([])
 
     // How to separate this to a different file?
     useEffect(() => {
       fetch("https://frontend-tech-test-ashy.vercel.app/api/match")
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+          setTeamDetails(data.match.contestant) 
+          setCompetitionDetails(data.match.meta)
+          setScores(data.match.liveData.matchDetails.scores)
+          setStatistics(data.match.liveData.lineups)
+        })
     }, [])
 
   return (
