@@ -40,7 +40,7 @@ export default function Home() {
         <main className={inter.className}>
           <Container>
             <MatchResults teamDetails={teamDetails} competitionDetails={competitionDetails} scores={scores}/>
-            <MatchDetails />
+            <MatchDetails statistics={statistics} />
           </Container>
         </main>
       </>

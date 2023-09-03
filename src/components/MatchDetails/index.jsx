@@ -2,7 +2,7 @@ import { useState } from "react"
 import styles from "./MatchDetails.module.css"
 import { MatchDetailsTabs } from "../MatchDetailsTabs"
 
-export const MatchDetails = () => {
+export const MatchDetails = ({ statistics }) => {
     const [activeTab, setActiveTab] = useState("General")
     const changeActiveTab = (tabName) => {
         return setActiveTab((tabName))
@@ -18,7 +18,7 @@ export const MatchDetails = () => {
                 <li className={`${activeTab === "Player" ? styles.active : styles.inactive} ${styles.item}`} onClick={() => changeActiveTab("Player")}>Player</li>
             </ul>
             <MatchDetailsTabs tabName={"Overview"} currentlyActiveTab={activeTab} />
-            <MatchDetailsTabs tabName={"General"} currentlyActiveTab={activeTab} />
+            <MatchDetailsTabs tabName={"General"} currentlyActiveTab={activeTab} statistics={statistics} />
             <MatchDetailsTabs tabName={"Team A"} currentlyActiveTab={activeTab} />
             <MatchDetailsTabs tabName={"Team B"} currentlyActiveTab={activeTab} />
             <MatchDetailsTabs tabName={"Player"} currentlyActiveTab={activeTab} />

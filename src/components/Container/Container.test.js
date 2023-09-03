@@ -8,5 +8,5 @@ describe("Container", () => {
         const pageContainer = getByTestId("page-container");
 
         expect(pageContainer).toBeDefined();
-    }) 
+    })
 })
