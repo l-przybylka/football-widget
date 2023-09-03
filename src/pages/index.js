@@ -13,33 +13,42 @@ export default function Home() {
   const [competitionDetails, setCompetitionDetails] = useState([])
   const [scores, setScores] = useState([])
   const [statistics, setStatistics] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  // How to separate this to a different file?
 
-    // How to separate this to a different file?
-    useEffect(() => {
-      fetch("https://frontend-tech-test-ashy.vercel.app/api/match")
-        .then(response => response.json())
-        .then(data => {
-          setTeamDetails(data.match.contestant) 
-          setCompetitionDetails(data.match.meta)
-          setScores(data.match.liveData.matchDetails.scores)
-          setStatistics(data.match.liveData.lineups)
-        })
-    }, [])
+  useEffect(() => {
+    fetch("https://frontend-tech-test-ashy.vercel.app/api/match")
+      .then(response => response.json())
+      .then(data => {
+        setTeamDetails(data.match.contestant)
+        setCompetitionDetails(data.match.meta)
+        setScores(data.match.liveData.matchDetails.scores)
+        setStatistics(data.match.liveData.lineups)
+        setIsLoading(false)
+      })
+  }, [])
 
-  return (
-    <>
-      <Head>
-        <title>Football Widget</title>
-        <meta name="description" content="Results of the football match" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={inter.className}>
-        <Container>
-          <MatchResults />
-          <MatchDetails />
-        </Container>
-      </main>
-    </>
-  )
+  if (!isLoading) {
+    return (
+      <>
+        <Head>
+          <title>Football Widget</title>
+          <meta name="description" content="Results of the football match" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <main className={inter.className}>
+          <Container>
+            <MatchResults teamDetails={teamDetails} competitionDetails={competitionDetails} scores={scores}/>
+            <MatchDetails />
+          </Container>
+        </main>
+      </>
+    )
+  } else {
+    return (
+      <div>data is loading</div>
+    )
+  }
+
 }

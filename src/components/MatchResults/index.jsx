@@ -1,11 +1,12 @@
 import styles from "./MatchResults.module.css"
 import Image from "next/image"
 
-export const MatchResults = () => {
+export const MatchResults = ({ teamDetails, competitionDetails, scores }) => {
+    console.log(scores)
     return (
         <>
             <div className={styles.header}>
-                <h2>Premier League</h2>
+                <h2>{competitionDetails.competition.name}</h2>
                 <h3>Full Time</h3>
             </div>
             <div className={styles.container}>
@@ -17,8 +18,9 @@ export const MatchResults = () => {
                         width={150}
                         height={150}
                     />
-                    <p>Arsenal</p>
-                    <h4>Score: 4</h4>
+                    <p>{teamDetails[0].officialName}</p>
+                    <span>{teamDetails[0].position}</span>
+                    <span>{scores.total.home}</span>
                 </div>
                 <div className={styles.team}>
 
@@ -28,8 +30,9 @@ export const MatchResults = () => {
                         width={150}
                         height={150}
                     />
-                    <p>Fulham</p>
-                    <h4>Score: 2</h4>
+                    <p>{teamDetails[1].officialName}</p>
+                    <span>{teamDetails[1].position}</span>
+                    <span>{scores.total.away}</span>
                 </div>
             </div>
 
