@@ -18,10 +18,6 @@
     color: white;
 }
 
-.hide {
-    display: none;
-}
-
 .active {
     background-color: black;
     color: white;
